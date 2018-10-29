@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GithubPeopleSearchTest</string>
+    <string name="no_data_found">No data found</string>
+    <string name="type_here_to_search">Type here to search</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="detail">Detail</string>
+    <string name="followers">Followers</string>
+</resources>
