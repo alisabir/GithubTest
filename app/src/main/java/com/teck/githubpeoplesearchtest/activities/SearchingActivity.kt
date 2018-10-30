@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
+import android.text.TextUtils
 import android.view.View
 import com.google.gson.Gson
 import com.teck.githubpeoplesearchtest.R
@@ -26,6 +27,8 @@ class SearchingActivity : AppCompatActivity(), UserSelectListener, SearchView.On
     private lateinit var githubUsers:ArrayList<GithubUser>
     private lateinit var githubUsersListAdapter: GithubUsersListAdapter
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_searching)
@@ -46,7 +49,7 @@ class SearchingActivity : AppCompatActivity(), UserSelectListener, SearchView.On
             }
         });
 
-        svGithubUser.setIconifiedByDefault(true)
+        svGithubUser.onActionViewExpanded();
 
     }
 
@@ -54,11 +57,21 @@ class SearchingActivity : AppCompatActivity(), UserSelectListener, SearchView.On
 
     private fun searchFriends(queryText:String?){
 
+
+        if(TextUtils.isEmpty(queryText)){
+
+            githubUsers.clear()
+            githubUsersListAdapter.notifyDataSetChanged()
+            return
+        }
+
+
         showSearchProgress(true)
         ApiControler.searchGithubUser(object : Callback<GitHumSearchResponse> {
             override fun onResponse(call: Call<GitHumSearchResponse>, response: Response<GitHumSearchResponse>) {
 
                 showSearchProgress(false)
+
                 if(response.isSuccessful&&response.body()!=null){
 
                     if(response.body().totalCount>0){

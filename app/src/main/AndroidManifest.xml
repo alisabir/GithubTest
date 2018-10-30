@@ -11,14 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SearchingActivity">
+        <activity android:name=".activities.SearchingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/github_people_search_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.GithubUserDetailActivity"></activity>
+        <activity android:name=".activities.GithubUserDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" ></activity>
     </application>
 
 </manifest>

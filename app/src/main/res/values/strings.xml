@@ -4,6 +4,7 @@
     <string name="type_here_to_search">Type here to search</string>
     <string name="email">Email</string>
     <string name="name">Name</string>
-    <string name="detail">Detail</string>
+    <string name="detail">detail\'s</string>
     <string name="followers">Followers</string>
+    <string name="github_people_search_test">Github User Search</string>
 </resources>
